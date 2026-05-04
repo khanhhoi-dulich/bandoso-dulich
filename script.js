@@ -39,7 +39,6 @@ var locations = [
         lng: 106.700975,
         desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. HCM",
         type: "hanhchinh"
-
     },
     {
         name: "Trung tâm Phục vụ Hành chính công",
@@ -47,7 +46,6 @@ var locations = [
         lng: 106.705483,
         desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM",
         type: "hanhchinh"
-
     }
 ];
 
@@ -58,7 +56,10 @@ locations.forEach(loc => {
 
     var marker = L.marker([loc.lat, loc.lng]).addTo(map);
 
-    marker.bindPopup(`<b>${loc.name}</b>`);
+    marker.bindPopup(`
+    <b>${loc.name}</b><br>
+    ${loc.desc}
+`);
 
     var li = document.createElement("li");
     li.innerText = loc.name;
