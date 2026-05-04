@@ -32,10 +32,26 @@ fetch('./Phuong.geojson')
 .catch(err => {
     console.error("Lỗi load GEOJSON:", err);
 });
-var marker1 = L.marker([10.764222, 106.700976]).addTo(map);
+var locations = [
+    {
+        name: "Văn phòng HĐND-UBND Phường",
+        lat: 10.764222,
+        lng: 106.700975,
+        desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. HCM"
+    },
+    {
+        name: "Trung tâm Phục vụ Hành chính công",
+        lat: 10.761353,
+        lng: 106.705483,
+        desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM"
+    }
+];
 
-marker1.bindPopup(`
-    <b>Văn phòng Hội đồng nhân dân - Ủy ban nhân dân phường</b><br>
-    Địa chỉ: 104 Bến Vân Đồn, Khánh Hội, TP. Hồ Chí Minh<br>
-    <img src="https://via.placeholder.com/150" width="150">
+locations.forEach(loc => {
+    var marker = L.marker([loc.lat, loc.lng]).addTo(map);
+
+    marker.bindPopup(`
+        <b>${loc.name}</b><br>
+        ${loc.desc}
     `);
+});
