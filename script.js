@@ -50,6 +50,7 @@ var locations = [
 
     }
 ];
+
 var listHC = document.getElementById("hanhchinh");
 var listTG = document.getElementById("tongiao");
 
