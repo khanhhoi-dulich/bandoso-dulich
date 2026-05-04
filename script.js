@@ -37,7 +37,7 @@ var locations = [
         name: "Văn phòng HĐND-UBND Phường",
         lat: 10.764222,
         lng: 106.700975,
-        desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. HCM"
+        desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. HCM",
         type: "hanhchinh"
 
     },
@@ -45,7 +45,7 @@ var locations = [
         name: "Trung tâm Phục vụ Hành chính công",
         lat: 10.761353,
         lng: 106.705483,
-        desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM"
+        desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM",
         type: "hanhchinh"
 
     }
