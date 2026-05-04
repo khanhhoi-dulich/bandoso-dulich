@@ -38,15 +38,20 @@ var locations = [
         lat: 10.764222,
         lng: 106.700975,
         desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. HCM"
+        type: "hanhchinh"
+
     },
     {
         name: "Trung tâm Phục vụ Hành chính công",
         lat: 10.761353,
         lng: 106.705483,
         desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM"
+        type: "hanhchinh"
+
     }
 ];
-var list = document.getElementById("locationList");
+var listHC = document.getElementById("hanhchinh");
+var listTG = document.getElementById("tongiao");
 
 locations.forEach(loc => {
 
