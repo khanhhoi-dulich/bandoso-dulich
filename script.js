@@ -32,7 +32,7 @@ fetch('Phuong.geojson')
         },
 
         onEachFeature: function(feature, layer) {
-            layer.bindPopup("<b>Ranh giới phường</b>");
+            layer.bindPopup("<b>Phường Khánh Hội</b>");
         }
 
     }).addTo(map);
