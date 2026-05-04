@@ -55,23 +55,22 @@ var listTG = document.getElementById("tongiao");
 
 locations.forEach(loc => {
 
-    // Marker
     var marker = L.marker([loc.lat, loc.lng]).addTo(map);
 
-    marker.bindPopup(`
-        <b>${loc.name}</b><br>
-        ${loc.desc}<br>
-        <img src="${loc.img}" width="150">
-    `);
+    marker.bindPopup(`<b>${loc.name}</b>`);
 
-    // Sidebar item
     var li = document.createElement("li");
     li.innerText = loc.name;
 
-    li.onclick = function() {
-        map.setView([loc.lat, loc.lng], 16);
+    li.onclick = function () {
+        map.setView([loc.lat, loc.lng], 17);
         marker.openPopup();
     };
 
-    list.appendChild(li);
+    // 🔥 PHÂN NHÓM
+    if (loc.type === "hanhchinh") {
+        listHC.appendChild(li);
+    } else if (loc.type === "tongiao") {
+        listTG.appendChild(li);
+    }
 });
