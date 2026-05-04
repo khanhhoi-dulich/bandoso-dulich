@@ -46,12 +46,27 @@ var locations = [
         desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM"
     }
 ];
+var list = document.getElementById("locationList");
 
 locations.forEach(loc => {
+
+    // Marker
     var marker = L.marker([loc.lat, loc.lng]).addTo(map);
 
     marker.bindPopup(`
         <b>${loc.name}</b><br>
-        ${loc.desc}
+        ${loc.desc}<br>
+        <img src="${loc.img}" width="150">
     `);
+
+    // Sidebar item
+    var li = document.createElement("li");
+    li.innerText = loc.name;
+
+    li.onclick = function() {
+        map.setView([loc.lat, loc.lng], 16);
+        marker.openPopup();
+    };
+
+    list.appendChild(li);
 });
