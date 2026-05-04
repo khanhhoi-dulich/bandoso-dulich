@@ -32,3 +32,10 @@ fetch('./Phuong.geojson')
 .catch(err => {
     console.error("Lỗi load GEOJSON:", err);
 });
+var marker1 = L.marker([10.764222, 106.700976]).addTo(map);
+
+marker1.bindPopup(`
+    <b>Văn phòng Hội đồng nhân dân - Ủy ban nhân dân phường</b><br>
+    Địa chỉ: 104 Bến Vân Đồn, Khánh Hội, TP. Hồ Chí Minh<br>
+    <img src="https://via.placeholder.com/150" width="150">
+    `);
