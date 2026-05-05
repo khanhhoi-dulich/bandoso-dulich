@@ -98,14 +98,6 @@ locations.forEach(loc => {
     }
 });
 
-    // 🔥 PHÂN NHÓM
-    if (loc.type === "hanhchinh") {
-        listHC.appendChild(li);
-    } else if (loc.type === "tongiao") {
-        listTG.appendChild(li);
-    }
-);
-
 function routeTo(lat, lng) {
 
     if (!navigator.geolocation) {
