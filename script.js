@@ -131,7 +131,7 @@ locations.forEach(loc => {
 marker.bindPopup(`
     <b>${loc.name}</b><br>
     ${loc.desc}<br><br>
-    <button onclick="routeTo(${loc.lat}, ${loc.lng})">
+    <button onclick="showInput(${loc.lat}, ${loc.lng})">
         🧭 Chỉ đường
     </button>
 `);
