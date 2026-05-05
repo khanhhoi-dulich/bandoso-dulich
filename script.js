@@ -51,21 +51,21 @@ var locations = [
         name: "Văn phòng HĐND-UBND Phường",
         lat: 10.764222,
         lng: 106.700975,
-        desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. HCM",
+        desc: "104 Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
     {
         name: "Trung tâm Phục vụ Hành chính công",
         lat: 10.761353,
         lng: 106.705483,
-        desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM",
+        desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
       {
         name: "Trạm Y tế phường Khánh Hội",
         lat: 10.76179,
         lng: 106.69779,
-        desc: "178 Bến Vân Đồn, phường Khánh Hội, TP. HCM",
+        desc: "178 Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
 ];
