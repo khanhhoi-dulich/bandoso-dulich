@@ -128,18 +128,22 @@ locations.forEach(loc => {
 
     var marker = L.marker([loc.lat, loc.lng]).addTo(map);
 
-    // 🔥 CLICK MARKER → VẼ ĐƯỜNG LUÔN
-    marker.on('click', function () {
-        routeTo(loc.lat, loc.lng);
-    });
+marker.bindPopup(`
+    <b>${loc.name}</b><br>
+    ${loc.desc}<br><br>
+    <button onclick="routeTo(${loc.lat}, ${loc.lng})">
+        🧭 Chỉ đường
+    </button>
+`);
 
+  
     var li = document.createElement("li");
     li.innerText = loc.name;
 
     // 🔥 CLICK SIDEBAR → VẼ ĐƯỜNG
     li.onclick = function () {
-        map.setView([loc.lat, loc.lng], 17);
-        routeTo(loc.lat, loc.lng);
+    map.setView([loc.lat, loc.lng], 17);
+    marker.openPopup();
     };
 
     if (loc.type === "hanhchinh") {
