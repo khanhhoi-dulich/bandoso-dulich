@@ -10,10 +10,10 @@ body {
 .sidebar {
     width: 260px;
     background: #2c3e50;
-    color: white;
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px;
     line-height: 1.6;
+    color: white;
 }
 
 .sidebar h3 {
