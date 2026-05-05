@@ -1,13 +1,13 @@
 var map = L.map('map').setView([10.76, 106.70], 14);
-var routeControl;
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
 var geoLayer;
+var routeControl;
 
-// 🔥 QUAN TRỌNG: kiểm tra đúng tên file
+// ===== LOAD GEOJSON =====
 fetch('./Phuong.geojson')
   .then(res => res.json())
   .then(data => {
@@ -33,8 +33,56 @@ fetch('./Phuong.geojson')
 .catch(err => {
     console.error("Lỗi load GEOJSON:", err);
 });
+
+
+// ===== HÀM CHỈ ĐƯỜNG =====
+function routeTo(lat, lng) {
+
+    if (!navigator.geolocation) {
+        alert("Trình duyệt không hỗ trợ định vị");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+        var userLat = position.coords.latitude;
+        var userLng = position.coords.longitude;
+
+        // Xóa route cũ
+        if (routeControl) {
+            map.removeControl(routeControl);
+        }
+
+        routeControl = L.Routing.control({
+            waypoints: [
+                L.latLng(userLat, userLng),
+                L.latLng(lat, lng)
+            ],
+
+            show: false,
+            addWaypoints: false,
+            draggableWaypoints: false,
+            fitSelectedRoutes: true,
+
+            createMarker: function () { return null; },
+
+            lineOptions: {
+                styles: [
+                    { color: '#2ecc71', weight: 6 }
+                ]
+            }
+
+        }).addTo(map);
+
+    }, function() {
+        alert("Không lấy được vị trí");
+    });
+}
+
+
+// ===== DATA =====
 var locations = [
-   {
+{
         name: "Văn phòng Đảng ủy phường Khánh Hội",
         lat: 10.760295,
         lng: 106.700214,
@@ -71,6 +119,8 @@ var locations = [
     }
 ];
 
+
+// ===== SIDEBAR =====
 var listHC = document.getElementById("hanhchinh");
 var listTG = document.getElementById("tongiao");
 
@@ -78,7 +128,7 @@ locations.forEach(loc => {
 
     var marker = L.marker([loc.lat, loc.lng]).addTo(map);
 
-   marker.bindPopup(`
+marker.bindPopup(`
     <b>${loc.name}</b><br>
     ${loc.desc}<br><br>
     <button onclick="routeTo(${loc.lat}, ${loc.lng})">
@@ -86,56 +136,31 @@ locations.forEach(loc => {
     </button>
 `);
 
+  
     var li = document.createElement("li");
     li.innerText = loc.name;
 
+    // 🔥 CLICK SIDEBAR → VẼ ĐƯỜNG
     li.onclick = function () {
-        map.setView([loc.lat, loc.lng], 17);
-        marker.openPopup();
+    map.setView([loc.lat, loc.lng], 17);
+    marker.openPopup();
     };
 
-    // 🔥 PHÂN NHÓM
     if (loc.type === "hanhchinh") {
         listHC.appendChild(li);
-    } else if (loc.type === "tongiao") {
+    } else {
         listTG.appendChild(li);
     }
 });
 
-function routeTo(lat, lng) {
 
-    if (!navigator.geolocation) {
-        alert("Trình duyệt không hỗ trợ định vị");
-        return;
-    }
+// ===== NÚT XÓA ROUTE =====
+var btn = document.getElementById("clearRoute");
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-
-        var userLat = position.coords.latitude;
-        var userLng = position.coords.longitude;
-
-        // Xóa route cũ nếu có
+if (btn) {
+    btn.onclick = function () {
         if (routeControl) {
             map.removeControl(routeControl);
         }
-
-        routeControl = L.Routing.control({
-    waypoints: [
-        L.latLng(userLat, userLng),
-        L.latLng(lat, lng)
-    ],
-
-    routeWhileDragging: false,
-
-    // 🔥 TẮT bảng hướng dẫn
-    show: false,
-
-    // 🔥 không hiện marker A/B
-    createMarker: function() { return null; }
-
-}).addTo(map);
-
-    }, function() {
-        alert("Không lấy được vị trí");
-    });
+    };
 }
