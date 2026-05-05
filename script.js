@@ -165,7 +165,50 @@ marker.bindPopup(`
     }
 });
 
+function startRouting() {
 
+    var address = document.getElementById("startPoint").value;
+
+    if (!address) {
+        alert("Vui lòng nhập địa chỉ");
+        return;
+    }
+
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`)
+        .then(res => res.json())
+        .then(data => {
+
+            if (data.length === 0) {
+                alert("Không tìm thấy địa chỉ");
+                return;
+            }
+
+            var userLat = parseFloat(data[0].lat);
+            var userLng = parseFloat(data[0].lon);
+
+            if (routeControl) {
+                map.removeControl(routeControl);
+            }
+
+            routeControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(userLat, userLng),
+                    L.latLng(targetLat, targetLng)
+                ],
+                show: false,
+                addWaypoints: false,
+                draggableWaypoints: false,
+                fitSelectedRoutes: true,
+                createMarker: function () { return null; },
+                lineOptions: {
+                    styles: [{ color: '#4285F4', weight: 6 }]
+                }
+            }).addTo(map);
+
+            closeBox();
+
+        });
+}
 // ===== NÚT XÓA ROUTE =====
 var btn = document.getElementById("clearRoute");
 
