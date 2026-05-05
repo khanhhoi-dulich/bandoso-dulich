@@ -60,7 +60,7 @@ var locations = [
         lng: 106.705483,
         desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. HCM",
         type: "hanhchinh"
-    }
+    },
       {
         name: "Trạm Y tế phường Khánh Hội",
         lat: 10.76179,
