@@ -67,7 +67,7 @@ var locations = [
         lng: 106.69779,
         desc: "178 Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
-    },
+    }
 ];
 
 var listHC = document.getElementById("hanhchinh");
