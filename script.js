@@ -5,7 +5,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var geoLayer;
-var routeControl;
 
 // ===== LOAD GEOJSON =====
 fetch('./Phuong.geojson')
@@ -33,52 +32,6 @@ fetch('./Phuong.geojson')
 .catch(err => {
     console.error("Lỗi load GEOJSON:", err);
 });
-
-
-// ===== HÀM CHỈ ĐƯỜNG =====
-function routeTo(lat, lng) {
-
-    if (!navigator.geolocation) {
-        alert("Trình duyệt không hỗ trợ định vị");
-        return;
-    }
-
-    navigator.geolocation.getCurrentPosition(function(position) {
-
-        var userLat = position.coords.latitude;
-        var userLng = position.coords.longitude;
-
-        // Xóa route cũ
-        if (routeControl) {
-            map.removeControl(routeControl);
-        }
-
-        routeControl = L.Routing.control({
-            waypoints: [
-                L.latLng(userLat, userLng),
-                L.latLng(lat, lng)
-            ],
-
-            show: false,
-            addWaypoints: false,
-            draggableWaypoints: false,
-            fitSelectedRoutes: true,
-
-            createMarker: function () { return null; },
-
-            lineOptions: {
-                styles: [
-                    { color: '#2ecc71', weight: 6 }
-                ]
-            }
-
-        }).addTo(map);
-
-    }, function() {
-        alert("Không lấy được vị trí");
-    });
-}
-
 
 // ===== DATA =====
 var locations = [
@@ -130,10 +83,7 @@ locations.forEach(loc => {
 
 marker.bindPopup(`
     <b>${loc.name}</b><br>
-    ${loc.desc}<br><br>
-    <button onclick="routeTo(${loc.lat}, ${loc.lng})">
-        🧭 Chỉ đường
-    </button>
+    ${loc.desc}
 `);
 
   
@@ -152,15 +102,4 @@ marker.bindPopup(`
         listTG.appendChild(li);
     }
 });
-
-
-// ===== NÚT XÓA ROUTE =====
-var btn = document.getElementById("clearRoute");
-
-if (btn) {
-    btn.onclick = function () {
-        if (routeControl) {
-            map.removeControl(routeControl);
-        }
-    };
 }
