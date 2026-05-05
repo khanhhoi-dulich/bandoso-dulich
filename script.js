@@ -1,3 +1,4 @@
+var map = L.map('map').setView([10.76, 106.70], 14);
 var routeControl;
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -67,7 +68,7 @@ var locations = [
         lng: 106.69779,
         desc: "178 Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
-   }
+    }
 ];
 
 var listHC = document.getElementById("hanhchinh");
@@ -80,7 +81,10 @@ locations.forEach(loc => {
    marker.bindPopup(`
     <b>${loc.name}</b><br>
     ${loc.desc}<br><br>
-   `);
+    <button onclick="routeTo(${loc.lat}, ${loc.lng})">
+        🧭 Chỉ đường
+    </button>
+`);
 
     var li = document.createElement("li");
     li.innerText = loc.name;
