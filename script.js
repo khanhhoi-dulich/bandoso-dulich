@@ -7,6 +7,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var geoLayer;
 var routeControl;
 
+var targetLat = null;
+var targetLng = null;
+
+function showInput(lat, lng) {
+    targetLat = lat;
+    targetLng = lng;
+    document.getElementById("routeBox").style.display = "block";
+}
+
+function closeBox() {
+    document.getElementById("routeBox").style.display = "none";
+}
 // ===== LOAD GEOJSON =====
 fetch('./Phuong.geojson')
   .then(res => res.json())
