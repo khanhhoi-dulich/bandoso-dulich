@@ -120,12 +120,20 @@ function routeTo(lat, lng) {
         }
 
         routeControl = L.Routing.control({
-            waypoints: [
-                L.latLng(userLat, userLng),
-                L.latLng(lat, lng)
-            ],
-            routeWhileDragging: false
-        }).addTo(map);
+    waypoints: [
+        L.latLng(userLat, userLng),
+        L.latLng(lat, lng)
+    ],
+
+    routeWhileDragging: false,
+
+    // 🔥 TẮT bảng hướng dẫn
+    show: false,
+
+    // 🔥 không hiện marker A/B
+    createMarker: function() { return null; }
+
+}).addTo(map);
 
     }, function() {
         alert("Không lấy được vị trí");
