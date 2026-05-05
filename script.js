@@ -68,7 +68,7 @@ var locations = [
         desc: "178 Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     }
-
+];
     var li = document.createElement("li");
     li.innerText = loc.name;
 
