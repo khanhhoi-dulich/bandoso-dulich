@@ -1,4 +1,5 @@
 var map = L.map('map').setView([10.76, 106.70], 14);
+var routeControl;
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
@@ -77,9 +78,12 @@ locations.forEach(loc => {
 
     var marker = L.marker([loc.lat, loc.lng]).addTo(map);
 
-    marker.bindPopup(`
+   marker.bindPopup(`
     <b>${loc.name}</b><br>
-    ${loc.desc}
+    ${loc.desc}<br><br>
+    <button onclick="routeTo(${loc.lat}, ${loc.lng})">
+        🧭 Chỉ đường
+    </button>
 `);
 
     var li = document.createElement("li");
@@ -97,3 +101,33 @@ locations.forEach(loc => {
         listTG.appendChild(li);
     }
 });
+
+function routeTo(lat, lng) {
+
+    if (!navigator.geolocation) {
+        alert("Trình duyệt không hỗ trợ định vị");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+        var userLat = position.coords.latitude;
+        var userLng = position.coords.longitude;
+
+        // Xóa route cũ nếu có
+        if (routeControl) {
+            map.removeControl(routeControl);
+        }
+
+        routeControl = L.Routing.control({
+            waypoints: [
+                L.latLng(userLat, userLng),
+                L.latLng(lat, lng)
+            ],
+            routeWhileDragging: false
+        }).addTo(map);
+
+    }, function() {
+        alert("Không lấy được vị trí");
+    });
+}
