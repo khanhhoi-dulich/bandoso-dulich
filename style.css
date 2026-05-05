@@ -39,3 +39,11 @@ body {
     flex: 1;
     height: 100vh;
 }
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
