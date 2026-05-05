@@ -83,14 +83,14 @@ function routeTo(lat, lng) {
 // ===== DATA =====
 var locations = [
 {
-        name: "Văn phòng Đảng ủy phường Khánh Hội",
+        name: "Văn phòng Đảng ủy phường",
         lat: 10.760295,
         lng: 106.700214,
         desc: "31 đường 12A, Phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
     {
-        name: "Ủy ban Mặt trận Tổ quốc Việt Nam phường Khánh Hội",
+        name: "Ủy ban Mặt trận Tổ quốc Việt Nam phường",
         lat: 10.760295,
         lng: 106.700214,
         desc: "31 đường 12A, Phường Khánh Hội, TP. Hồ Chí Minh",
