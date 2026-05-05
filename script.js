@@ -104,7 +104,7 @@ locations.forEach(loc => {
     } else if (loc.type === "tongiao") {
         listTG.appendChild(li);
     }
-});
+);
 
 function routeTo(lat, lng) {
 
