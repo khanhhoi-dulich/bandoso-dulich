@@ -26,6 +26,16 @@
         <h4>⛪ Cơ sở tôn giáo</h4>
         <ul id="tongiao"></ul>
     </div>
+        <div id="routeBox" style="display:none; position:fixed; top:30%; left:50%; transform:translate(-50%, -50%);
+background:white; padding:15px; border-radius:8px; z-index:1000; width:250px;">
+
+    <b>Nhập vị trí của bạn</b><br><br>
+
+    <input id="startPoint" type="text" placeholder="vd: 71 Tôn Đản, Q4" style="width:100%; padding:6px;"><br><br>
+
+    <button onclick="startRouting()">Xác nhận</button>
+    <button onclick="closeBox()">Hủy</button>
+</div>
     </div>
 
     <!-- Map -->
