@@ -96,7 +96,7 @@ locations.forEach(loc => {
     } else if (loc.type === "tongiao") {
         listTG.appendChild(li);
     }
-})
+});
 
     // 🔥 PHÂN NHÓM
     if (loc.type === "hanhchinh") {
