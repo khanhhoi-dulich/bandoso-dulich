@@ -102,4 +102,3 @@ marker.bindPopup(`
         listTG.appendChild(li);
     }
 });
-}
