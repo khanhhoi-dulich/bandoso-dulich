@@ -63,8 +63,15 @@ var locations = [
         desc: "531 Vĩnh Khánh, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
+        {
+        name: "Công an Phường Khánh Hội",
+        lat: 10.76014, 
+        lng: 106.70721,
+        desc: "71 Tôn Đản, phường Khánh Hội, TP. Hồ Chí Minh",
+        type: "hanhchinh"
+    },
       {
-        name: "Trạm Y tế phường Khánh Hội",
+        name: "Trạm Y tế Phường Khánh Hội",
         lat: 10.76179,
         lng: 106.69779,
         desc: "178 Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
