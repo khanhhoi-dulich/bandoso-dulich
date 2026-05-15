@@ -70,14 +70,7 @@ var locations = [
         desc: "71 Tôn Đản, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
-      {
-        name: "Trung tâm Cung ứng dịch vụ Phường Khánh Hội",
-        lat: 10.759868, 
-        lng: 106.701809,
-        desc: "129F/64a Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
-        type: "hanhchinh"
-    },
-      {
+       {
         name: "Trạm Y tế Phường Khánh Hội",
         lat: 10.76179,
         lng: 106.69779,
