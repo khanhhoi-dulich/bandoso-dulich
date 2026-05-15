@@ -72,8 +72,8 @@ var locations = [
     },
        {
         name: "Trung tâm cung ứng dịch vụ công Phường Khánh Hội",
-        lat: 10.76013991930822, 
-        lng: 106.70227043059859,
+        lat: 10.76013, 
+        lng: 106.70227,
         desc: "129F/64A Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
