@@ -76,7 +76,7 @@ var locations = [
        long: 106.701809,
        desc: 129F/64A, Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
        type: "hanhchinh"
-    };
+    },
       {
         name: "Trạm Y tế Phường Khánh Hội",
         lat: 10.76179,
