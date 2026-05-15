@@ -39,14 +39,14 @@ var locations = [
         name: "Văn phòng Đảng ủy phường",
         lat: 10.760295,
         lng: 106.700214,
-        desc: "31 đường 12A, Phường Khánh Hội, TP. Hồ Chí Minh",
+        desc: "31 đường 12A, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
     {
         name: "Ủy ban Mặt trận Tổ quốc Việt Nam phường",
         lat: 10.760295,
         lng: 106.700214,
-        desc: "31 đường 12A, Phường Khánh Hội, TP. Hồ Chí Minh",
+        desc: "31 đường 12A, phường Khánh Hội, TP. Hồ Chí Minh",
         type: "hanhchinh"
     },
     {
@@ -71,11 +71,11 @@ var locations = [
         type: "hanhchinh"
     },
       {
-       name: "Trung tâm cung ứng dịch vụ công",
-       lat: 10.759868,
-       long: 106.701809,
-       desc: 129F/64A, Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
-       type: "hanhchinh"
+        name: "Trung tâm Cung ứng dịch vụ Phường Khánh Hội",
+        lat: 10.759868, 
+        lng: 106.701809,
+        desc: "129F/64a Bến Vân Đồn, phường Khánh Hội, TP. Hồ Chí Minh",
+        type: "hanhchinh"
     },
       {
         name: "Trạm Y tế Phường Khánh Hội",
